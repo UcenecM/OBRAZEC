@@ -1,0 +1,115 @@
+html, body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+h1{
+    margin: 0 0 20px 0;
+    padding: 0 15px 20px 15px;
+    font-size: 40px;
+    font-weight: normal;
+    font-family: 'Teko', sans-serif;
+    color: #7cba78;
+    border-bottom: 1px solid #111;
+    text-align: center;
+}
+
+h2{margin: 0;padding: 0;
+    font-family: 'Teko', sans-serif;
+}
+
+#form{
+    padding: 0 10px;
+}
+
+#ogrodje{
+    width: 800px;
+    margin: 0 auto;
+    background: #d6cece;
+    padding: 20px;
+    border-radius: 25px;
+    margin-top: 5%;
+}
+.levo{
+    float: left;
+    width: 50%;
+    text-align: right;
+    margin: 0 10px 0 0;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 20px;
+}
+
+.desno{
+    float: left;
+    text-align: left;
+    margin: 0 0 0 10px;
+}
+.vrstica{
+    clear: both;
+    padding: 5px;
+    margin: 10px 0;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+.oz{
+    background: #B3EAF2;
+    border-radius: 25px;
+}
+.po:hover{
+    background: #ffa;
+}
+
+input:invalid {
+    border: 2px solid red;
+ }
+
+
+.vpis{
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    border-radius: 5px;
+}
+.mapa{
+    clear: both;
+    margin: 10px 0;
+    overflow: hidden;
+    width: 100%;
+    text-align: center;
+    border-radius: 30px;
+}
+
+.crta{
+    border-bottom: 3px dashed black
+}
+
+#gumb{
+    background:#3630a3;color:white;
+}
+
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+ 
+    50% {
+        background-position: 100% 50%;
+    }
+ 
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
