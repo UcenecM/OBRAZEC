@@ -115,7 +115,21 @@
             <div class="vrstica po">
                 <div class="levo">Tel.*</div>
                 <div class="desno">
-                    <input type="tel" name="telefonska" class="vpis" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" placeholder="000 000 000" size="8" required></input>
+                    <input type="tel" name="telefonska" id="samoSt" class="vpis" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" placeholder="000 000 000" size="8"  maxlength="11" required></input>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            var samoSt = document.getElementById("samoSt");
+                        
+                            samoSt.addEventListener("input", function(event) {
+                                var inputText = samoSt.value;
+                                var numbersOnly = inputText.replace(/\D/g, ''); // Remove non-digit characters
+                        
+                                if (inputText !== numbersOnly) {
+                                    samoSt.value = numbersOnly; // Update the input value
+                                }
+                            });
+                        });
+                        </script>
                 </div>
             </div>
             <div class="vrstica oz">
