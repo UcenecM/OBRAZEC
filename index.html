@@ -3,12 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>NALOGA ZA OCENO MARK BUDA</title>
+    <title>PRIJAVNICA ZA LET</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Yanone+Kaffeesatz&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -21,119 +25,109 @@
             <div class="vrstica po">
                 <div class="levo">Ime*</div>
                 <div class="desno">
-                    <input type="text" name="ime" class="vpis" maxlength="20" required></input>
+                    <input type="text" name="ime" id="ime" class="vpis" maxlength="20" placeholder="Mark" required ></input>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Priimek*</div>
                 <div class="desno">
-                    <input type="text" name="priimek" class="vpis" maxlength="20" required></input>
+                    <input type="text" name="priimek" id="priimek" class="vpis" maxlength="20" placeholder="Buda" required></input>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Spol*</div>
                 <div class="desno">
-                    <input type="radio" name="spol" value="M" checked="checked" >M</input>
-                    <input type="radio" name="spol" value="Ž" >Ž</input>
-                    <input type="radio" name="spol" value="D" >DRUGO</input>
+                    <input type="radio" name="spol" value="M" checked="checked">M</input>
+                    <input type="radio" name="spol" value="Ž">Ž</input>
+                    <input type="radio" name="spol" value="D">DRUGO</input>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Naslov*</div>
                 <div class="desno">
-                    <input type="text" name="naslov" class="vpis" maxlength="25" required></input>
+                    <input type="text" name="naslov" id="naslov" class="vpis" maxlength="25"  placeholder="Ljubljana 10" required></input>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Poštna št*</div>
                 <div class="desno">
-                    <input type="text" name="stevilka" class="vpis" id="brezStevilke" maxlength="15" size=10 placeholder="Ljubljana" required></input>
-                        <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            var brezStevilke = document.getElementById("brezStevilke");
-                
-                            brezStevilke.addEventListener("input", function(event) {
-                                var inputText = brezStevilke.value;
-                                var lettersAndSpacesOnly = inputText.replace(/[^A-Za-z\s]/g, ''); // Remove non-letter and non-space characters
-                
+                    <input type="text" name="stevilka" class="vpis" id="kraj" maxlength="15" size=10
+                        placeholder="Ljubljana" required></input>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var kraj = document.getElementById("kraj");
+
+                            kraj.addEventListener("input", function (event) {
+                                var inputText = kraj.value;
+                                var lettersAndSpacesOnly = inputText.replace(/[^A-Za-z\s]/g, '');
+
                                 if (inputText !== lettersAndSpacesOnly) {
-                                    brezStevilke.value = lettersAndSpacesOnly; // Update the input value
+                                    stevilka.value = lettersAndSpacesOnly;
                                 }
                             });
                         });
-                        </script>
-                          
-                    <input type="text" name="kraj" class="vpis" id="samoStevilke" maxlength="4" size="1" placeholder="1111" required></input>
-                        <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            var samoStevilke = document.getElementById("samoStevilke");
-                        
-                            samoStevilke.addEventListener("input", function(event) {
-                                var inputText = samoStevilke.value;
-                                var numbersOnly = inputText.replace(/\D/g, ''); // Remove non-digit characters
-                        
+                    </script>
+
+                    <input type="text" name="kraj" class="vpis" id="stevilka" maxlength="4" size="1"
+                        placeholder="1111" required></input>
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var stevilka = document.getElementById("stevilka");
+
+                            stevilka.addEventListener("input", function (event) {
+                                var inputText = stevilka.value;
+                                var numbersOnly = inputText.replace(/\D/g, '');
+
                                 if (inputText !== numbersOnly) {
-                                    samoStevilke.value = numbersOnly; // Update the input value
+                                    stevilka.value = numbersOnly;
                                 }
                             });
                         });
-                        </script>
+                    </script>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Emšo*</div>
                 <div class="desno">
-                    <input type="text" name="emso" class="vpis" maxlength="13" id="samoStevke" size="10" placeholder="1234567890123" required></input>
+                    <input type="text" name="emso" class="vpis" maxlength="13" id="emso" size="10"
+                        placeholder="1234567890123" required></input>
                     <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            var samoStevkee = document.getElementById("samoStevke");
-                        
-                            samoStevke.addEventListener("input", function(event) {
-                                var inputText = samoStevke.value;
-                                var numbersOnly = inputText.replace(/\D/g, ''); // Remove non-digit characters
-                        
+                        document.addEventListener("DOMContentLoaded", function () {
+                            var emso = document.getElementById("emso");
+
+                            emso.addEventListener("input", function (event) {
+                                var inputText = emso.value;
+                                var numbersOnly = inputText.replace(/\D/g, '');
+
                                 if (inputText !== numbersOnly) {
-                                    samoStevke.value = numbersOnly; // Update the input value
+                                    emso.value = numbersOnly;
                                 }
                             });
                         });
-                        </script>
+                    </script>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Bančna št.*</div>
                 <div class="desno">
-                    <input type="text" name="banka" class="vpis" placeholder="0000-0000-0000-0000" size="15" required></input>
+                    <input type="text" name="banka" class="vpis" id="banka" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" placeholder="0000 0000 0000 0000" size="16" maxlength="19" required></input>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Email*</div>
                 <div class="desno">
-                    <input type="email" placeholder="mark@example.com" class="vpis" required>
+                    <input type="email" id="email" placeholder="mark@example.com" class="vpis" required>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Tel.*</div>
                 <div class="desno">
-                    <input type="tel" name="telefonska" id="samoSt" class="vpis" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" placeholder="000 000 000" size="8"  maxlength="11" required></input>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            var samoSt = document.getElementById("samoSt");
-                        
-                            samoSt.addEventListener("input", function(event) {
-                                var inputText = samoSt.value;
-                                var numbersOnly = inputText.replace(/\D/g, ''); // Remove non-digit characters
-                        
-                                if (inputText !== numbersOnly) {
-                                    samoSt.value = numbersOnly; // Update the input value
-                                }
-                            });
-                        });
-                        </script>
+                    <input type="tel" name="telefonska" class="vpis" id="tel" pattern="[0-9]{3} [0-9]{3} [0-9]{3}"
+                        placeholder="000 000 000" size="8" maxlength="11" required></input>
                 </div>
             </div>
             <div class="vrstica oz">
-                <h2>KAM LETETI:</h2>
+                <h2>DESTINACIJA LETA</h2>
             </div>
             <div class="vrstica po">
                 <div class="levo">OD*</div>
@@ -300,7 +294,7 @@
                         <option value="Sierra Leone">Sierra Leone</option>
                         <option value="Singapore">Singapore</option>
                         <option value="Slovakia">Slovakia</option>
-                        <option value="Slovenia">Slovenia</option>
+                        <option value="Slovenia" selected>Slovenia</option>
                         <option value="Solomon Islands">Solomon Islands</option>
                         <option value="Somalia">Somalia</option>
                         <option value="South Africa">South Africa</option>
@@ -408,7 +402,7 @@
                         <option value="Gabon">Gabon</option>
                         <option value="Gambia">Gambia</option>
                         <option value="Georgia">Georgia</option>
-                        <option value="Germany">Germany</option>
+                        <option value="Germany" selected>Germany</option>
                         <option value="Ghana">Ghana</option>
                         <option value="Gibraltar">Gibraltar</option>
                         <option value="Greece">Greece</option>
@@ -551,17 +545,88 @@
             <div class="crta"> </div>
 
             <div class="vrstica">
-                <input type="checkbox" required>
-                <label>Ali se strinjaš?</label>
+                <input type="checkbox" id="pogoj" required>
+                <label>Se strinjaš s <a href="pogoji.pdf" target=”_blank”>Pogoji</a>.</label>
             </div>
             <div class="vrstica">
-                <input type="submit" id="gumb" value="Submit"/>
+                <input type="submit" id="submit" value="Pošlji" />
             </div>
+
 
     </div>
     </div>
     </form>
     </div>
-</body>
+    <script>
+        document.getElementById('ime').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite svoje ime!');
+        });
+      
+        document.getElementById('ime').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
 
+        document.getElementById('priimek').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite svoj priimek!');
+        });
+      
+        document.getElementById('priimek').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
+
+        document.getElementById('naslov').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite svoj naslov!');
+        });
+      
+        document.getElementById('naslov').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
+
+        document.getElementById('kraj').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite kraj pošte!');
+        });
+      
+        document.getElementById('kraj').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
+          document.getElementById('stevilka').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite svojo poštno številko!');
+        });
+      
+        document.getElementById('stevilka').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
+        document.getElementById('emso').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite svoj emso!');
+        });
+      
+        document.getElementById('emso').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
+
+        document.getElementById('banka').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite svojo bančno številko!');
+        });
+      
+        document.getElementById('banka').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
+
+        document.getElementById('email').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite svoj email!');
+        });
+      
+        document.getElementById('email').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
+
+        document.getElementById('tel').addEventListener('invalid', function(event) {
+          event.target.setCustomValidity('Prosim vpišite svojo telefonsko številko!');
+        });
+      
+        document.getElementById('tel').addEventListener('input', function(event) {
+          event.target.setCustomValidity('');
+        });
+      </script>
+</body>
 </html>
