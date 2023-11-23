@@ -25,27 +25,29 @@
             <div class="vrstica po">
                 <div class="levo">Ime*</div>
                 <div class="desno">
-                    <input type="text" name="ime" id="ime" class="vpis" maxlength="20" placeholder="Mark" required ></input>
+                    <input type="text" name="ime" id="ime" class="vpis" maxlength="20" placeholder="Mark"
+                        required></input>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Priimek*</div>
                 <div class="desno">
-                    <input type="text" name="priimek" id="priimek" class="vpis" maxlength="20" placeholder="Buda" required></input>
+                    <input type="text" name="priimek" id="priimek" class="vpis" maxlength="20" placeholder="Buda"
+                        required></input>
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Spol*</div>
-                <div class="desno">
-                    <input type="radio" name="spol" value="M" checked="checked">M</input>
-                    <input type="radio" name="spol" value="Ž">Ž</input>
-                    <input type="radio" name="spol" value="D">DRUGO</input>
+                <div class="desno" id="buttons">
+                    <input label="Male" type="radio" name="gender" value="male" checked>
+                    <input label="Female" type="radio" name="gender" value="female">
                 </div>
             </div>
             <div class="vrstica po">
                 <div class="levo">Naslov*</div>
                 <div class="desno">
-                    <input type="text" name="naslov" id="naslov" class="vpis" maxlength="25"  placeholder="Ljubljana 10" required></input>
+                    <input type="text" name="naslov" id="naslov" class="vpis" maxlength="25" placeholder="Ljubljana 10"
+                        required></input>
                 </div>
             </div>
             <div class="vrstica po">
@@ -68,8 +70,8 @@
                         });
                     </script>
 
-                    <input type="text" name="kraj" class="vpis" id="stevilka" maxlength="4" size="1"
-                        placeholder="1111" required></input>
+                    <input type="text" name="kraj" class="vpis" id="stevilka" maxlength="4" size="1" placeholder="1111"
+                        required></input>
                     <script>
                         document.addEventListener("DOMContentLoaded", function () {
                             var stevilka = document.getElementById("stevilka");
@@ -110,7 +112,9 @@
             <div class="vrstica po">
                 <div class="levo">Bančna št.*</div>
                 <div class="desno">
-                    <input type="text" name="banka" class="vpis" id="banka" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" placeholder="0000 0000 0000 0000" size="16" maxlength="19" required></input>
+                    <input type="text" name="banka" class="vpis" id="banka"
+                        pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" placeholder="0000 0000 0000 0000" size="16"
+                        maxlength="19" required></input>
                 </div>
             </div>
             <div class="vrstica po">
@@ -132,7 +136,7 @@
             <div class="vrstica po">
                 <div class="levo">OD*</div>
                 <div class="desno">
-                    <select class="vpis">
+                    <select class="vpis" id="selectBox1" onchange="checkSelection()">
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -337,7 +341,7 @@
             <div class="vrstica po">
                 <div class="levo">DO*</div>
                 <div class="desno">
-                    <select class="vpis">
+                    <select class="vpis" id="selectBox2" onchange="checkSelection()">
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Albania">Albania</option>
                         <option value="Algeria">Algeria</option>
@@ -537,6 +541,7 @@
                         <option value="Zambia">Zambia</option>
                         <option value="Zimbabwe">Zimbabwe</option>
                     </select>
+                    <p id="error" style="color: red; display: none;">Error: Selections are the same!</p>
                 </div>
             </div>
             <div class="mapa">
@@ -558,75 +563,107 @@
     </form>
     </div>
     <script>
-        document.getElementById('ime').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite svoje ime!');
-        });
-      
-        document.getElementById('ime').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
+        document.getElementById('ime').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite svoje ime!');
         });
 
-        document.getElementById('priimek').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite svoj priimek!');
-        });
-      
-        document.getElementById('priimek').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
+        document.getElementById('ime').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
         });
 
-        document.getElementById('naslov').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite svoj naslov!');
-        });
-      
-        document.getElementById('naslov').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
+        document.getElementById('priimek').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite svoj priimek!');
         });
 
-        document.getElementById('kraj').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite kraj pošte!');
-        });
-      
-        document.getElementById('kraj').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
-        });
-          document.getElementById('stevilka').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite svojo poštno številko!');
-        });
-      
-        document.getElementById('stevilka').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
-        });
-        document.getElementById('emso').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite svoj emso!');
-        });
-      
-        document.getElementById('emso').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
+        document.getElementById('priimek').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
         });
 
-        document.getElementById('banka').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite svojo bančno številko!');
-        });
-      
-        document.getElementById('banka').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
+        document.getElementById('naslov').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite svoj naslov!');
         });
 
-        document.getElementById('email').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite svoj email!');
-        });
-      
-        document.getElementById('email').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
+        document.getElementById('naslov').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
         });
 
-        document.getElementById('tel').addEventListener('invalid', function(event) {
-          event.target.setCustomValidity('Prosim vpišite svojo telefonsko številko!');
+        document.getElementById('kraj').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite kraj pošte!');
         });
-      
-        document.getElementById('tel').addEventListener('input', function(event) {
-          event.target.setCustomValidity('');
+
+        document.getElementById('kraj').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
         });
-      </script>
+        document.getElementById('stevilka').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite svojo poštno številko!');
+        });
+
+        document.getElementById('stevilka').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
+        });
+        document.getElementById('emso').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite svoj emso!');
+        });
+
+        document.getElementById('emso').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
+        });
+
+        document.getElementById('banka').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite svojo bančno številko!');
+        });
+
+        document.getElementById('banka').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
+        });
+
+        document.getElementById('email').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite svoj email!');
+        });
+
+        document.getElementById('email').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
+        });
+
+        document.getElementById('tel').addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('Prosim vpišite svojo telefonsko številko!');
+        });
+
+        document.getElementById('tel').addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
+        });
+    </script>
+    <script>
+        document.getElementById('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            Swal.fire({
+                icon: 'success',
+                title: 'Prijavnica poslana!',
+                showConfirmButton: false,
+                timer: 2600,
+
+            }).then((value) => {
+                location.reload();
+            })
+        }); 
+    </script>
+    <script>
+        function checkSelection() {
+            var selectBox1 = document.getElementById("selectBox1");
+            var selectBox2 = document.getElementById("selectBox2");
+            var error = document.getElementById("error");
+
+                if (selectBox1.value === selectBox2.value) {
+                    Swal.fire({
+                        title: "NAPAKA!",
+                        text: "Izberi različne države!",
+                        icon: "error"
+                        });
+                    selectBox2.selectedIndex=0;
+                 } 
+        }
+
+    </script>
 </body>
+
 </html>

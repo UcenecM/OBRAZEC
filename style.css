@@ -62,13 +62,45 @@ h2{margin: 0;padding: 0;
 }
 
 .oz{
-    background: #B3EAF2;
+    background: rgb(180, 211, 232);
     border-radius: 25px;
 }
 .po:hover{
     background: rgb(180, 211, 232);
 }
+#buttons {
+    
+    border-radius: 3px;
+    position: relative;
+    width: fit-content;
+    border-radius: 10px;
+  }
 
+  #buttons input {
+    appearance: none;
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 5px 10px;
+    background: #3f414d;
+    color: #ececec;
+    font-size: 15px;
+    font-family: sans-serif;
+    transition: all 0.1s;
+    border-radius: 10px;
+  }
+
+  #buttons input:checked {
+    background: #1c13b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 0px #808080;
+    border-radius: 10px;
+  }
+
+  #buttons input::before {
+    content: attr(label);
+    text-align: center;
+    border-radius: 10px;
+  }
 input:invalid {
     border: 2px solid red;
  }
